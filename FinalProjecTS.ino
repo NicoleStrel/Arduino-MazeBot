@@ -1,8 +1,8 @@
 //Angelina + Nicole 
-//Final project 
+//Final project- Maze Bot
 #include <Servo.h>
 
-//declare Variables 
+//Declare variables 
 Servo pingServo; 
 Servo servoLeft;
 Servo servoRight;
@@ -20,7 +20,7 @@ int greenLED=6;
 int blueLED= 7;
 int numTurn=1;
 
-//Setup function
+//------------------Setup function----------------------
 void setup() {
 Serial.begin(9600);
 pinMode (pingPinT, OUTPUT);
@@ -31,7 +31,7 @@ servoLeft.attach(12);
 servoRight.attach(13);
 }
 
-//Loop function
+//--------------------Loop function-------------------
 void loop() { 
 digitalWrite (greenLED, HIGH);
 //Detect Middle(forward)
@@ -90,6 +90,7 @@ if (cm <=14 ){
     stopIt(100);
     delay(100);
     numTurn ++;
+      
    //turn left if left side is bigger
    }else if(cmL>cmR){
     Serial.println("TUrning Left!");
@@ -98,6 +99,7 @@ if (cm <=14 ){
     stopIt(100);
     delay(100);   
     numTurn ++;
+      
     //turning right if right side is bigger
    }else if(cmR>cmL){
     turnRight(28);
@@ -133,6 +135,8 @@ if (numTurn==9){
    } 
 }
 
+//-----------------------FUNCTIONS-----------------------
+
 //measuring function
 int ultraSound(){
 digitalWrite(pingPinT, LOW);
@@ -149,7 +153,6 @@ if (cm==0){
 return cm;
 
 }
-
 //Moving forward function
 void forward(int loops){
   for (int i =1; i<=loops; i++){
@@ -394,7 +397,3 @@ void noteG4 (int duration){
 void chorus(){
   
 }
-
-
-
-
